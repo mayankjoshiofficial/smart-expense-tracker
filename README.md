@@ -1,3 +1,4 @@
+🚀 Day-by-day Python learning project focused on building real-world logic and clean coding habits.
 # Smart Expense Tracker (Python)
 
 A beginner-friendly Python CLI project to track daily expenses.
