@@ -23,5 +23,12 @@ A beginner-friendly Python CLI project to track daily expenses.
 - Delete/Edit expense
 - CSV support
 
+## 🚀 Project Progress
+
+- Day 1: Basic expense tracking using file handling
+- Day 2: Added categories, date handling, safer parsing, and bug fixes
+- Day 3: Category-wise totals, monthly summary, delete feature (CRUD), and improved CLI UX
+
+
 ## Author
 Mayank Joshi
