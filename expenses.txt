@@ -1,3 +1,4 @@
-2026-01-20,Chole Bhature,FOOD,199.0
-2026-01-20,Gulabjamun,FOOD,55.0
-2026-01-20,Bike Ride,TRAVEL,1000.0
+2026-01-21,Chole Bhature,FOOD,199.0
+2026-01-21,Gulab-jamun,FOOD,75.0
+2026-01-21,Rental Bike Ride,TRAVEL,1000.0
+2026-01-21,Flight Ticket,TRAVEL,18999.0

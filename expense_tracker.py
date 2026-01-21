@@ -13,12 +13,66 @@ def initialize_file():
 
 def show_menu():
     print("\n==============================")
-    print("     SMART EXPENSE TRACKER")
+    print("     💰 SMART EXPENSE TRACKER")
     print("==============================")
-    print("1. Add Expense")
-    print("2. View Expenses")
-    print("3. Total Spent")
-    print("4. Exit")
+    print("1️.  Add Expense")
+    print("2️.  View Expenses")
+    print("3️.  Total Spent")
+    print("4️.  Category-wise Total")
+    print("5️.  Monthly Total")
+    print("6️.  Delete Expense")
+    print("7️.  Exit")
+
+
+def category_total():
+    totals = {}
+    with open(FILE_NAME, "r") as file:
+        for line in file:
+            parts =line.strip().split(",")
+
+            if len(parts) >= 4:
+                category = parts[2]
+                amount =float(parts[-1])
+
+                if category in totals:
+                    totals[category] += amount
+                else:
+                    totals[category]=amount
+    print("\n category-wise Spending:")
+    for cat,amt in totals.items():
+        print(f"{cat}--> ₹{amt}")
+
+def monthly_total():
+    month = input("Enter month (YYYY-MM): ")
+    total = 0
+
+    with open(FILE_NAME, "r") as file:
+        for line in file:
+            parts = line.strip().split(",")
+
+            if parts[0].startswith(month):
+                total += float(parts[-1])
+
+    print(f"\n📅 Total spent in {month} = ₹{total}")
+
+def delete_expense():
+    with open(FILE_NAME, "r") as file:
+        lines = file.readlines()
+
+    for i, line in enumerate(lines):
+        print(f"{i+1}. {line.strip()}")
+
+    choice = int(input("Enter expense number to delete: "))
+
+    if 1 <= choice <= len(lines):
+        lines.pop(choice - 1)
+
+        with open(FILE_NAME, "w") as file:
+            file.writelines(lines)
+
+        print("🗑️ Expense deleted successfully!")
+    else:
+        print("❌ Invalid selection")
 
 
 def add_expense():
@@ -102,10 +156,16 @@ def main():
         elif choice == 3:
             total_spent()
         elif choice == 4:
+            category_total()
+        elif choice == 5:
+            monthly_total()
+        elif choice == 6:
+            delete_expense()
+        elif choice == 7:
             print("👋 Goodbye! Keep tracking your expenses.")
             break
         else:
-            print("❌ Invalid choice. Please select 1–4.")
+            print("❌ Invalid choice. Please select 1–7.")
 
 
 main()
